@@ -10,10 +10,10 @@ gem "rake", ">= 13"
 
 gem "sprockets-rails", ">= 2.0.0", require: false
 gem "propshaft", ">= 0.1.7"
-gem "capybara", ">= 3.39"
+gem "capybara", ">= 3.40.0"
 gem "selenium-webdriver", ">= 4.20.0"
 
-gem "rack-cache", "~> 1.2"
+gem "rack-cache", "~> 1.16", ">= 1.16.0"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "jsbundling-rails"
@@ -48,7 +48,7 @@ group :rubocop do
   gem "rubocop-minitest", require: false
   gem "rubocop-packaging", require: false
   gem "rubocop-performance", require: false
-  gem "rubocop-rails", require: false
+  gem "rubocop-rails", ">= 2.24.0", require: false
   gem "rubocop-md", require: false
 
   # This gem is used in Railties tests so it must be a development dependency.
@@ -85,9 +85,9 @@ gem "web-console", require: false
 # Action Pack and railties
 rack_version = ENV.fetch("RACK", "~> 3.0")
 if rack_version != "head"
-  gem "rack", rack_version
+  gem "rack", ">= 3.1.5", rack_version
 else
-  gem "rack", git: "https://github.com/rack/rack.git", branch: "main"
+  gem "rack", ">= 3.1.5", git: "https://github.com/rack/rack.git", branch: "main"
 end
 
 gem "useragent", require: false
@@ -96,7 +96,7 @@ gem "useragent", require: false
 group :job do
   gem "resque", require: false
   gem "resque-scheduler", require: false
-  gem "sidekiq", require: false
+  gem "sidekiq", ">= 7.2.1", require: false
   gem "sucker_punch", require: false
   gem "delayed_job", require: false
   gem "queue_classic", ">= 4.0.0", require: false, platforms: :ruby
